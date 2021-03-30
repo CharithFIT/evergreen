@@ -1,10 +1,10 @@
-import React, { forwardRef, memo } from 'react'
-import PropTypes from 'prop-types'
-import { splitBoxProps } from 'ui-box'
 import { FormField } from '../../form-field'
 import { useId } from '../../hooks'
 import { majorScale } from '../../scales'
 import TextInput from './TextInput'
+import { splitBoxProps } from 'ui-box'
+import PropTypes from 'prop-types'
+import React, { forwardRef, memo } from 'react'
 
 const TextInputField = memo(
   forwardRef(function TextInputField(props, ref) {
@@ -29,6 +29,7 @@ const TextInputField = memo(
       spellCheck,
       inputHeight = majorScale(4),
       inputWidth = '100%',
+      inputType = 'text',
 
       // Rest props are spread on the FormField
       ...restProps
@@ -61,6 +62,7 @@ const TextInputField = memo(
           placeholder={placeholder}
           spellCheck={spellCheck}
           ref={ref}
+          type={inputType}
           {...remainingProps}
         />
       </FormField>
@@ -114,7 +116,9 @@ TextInputField.propTypes = {
   /**
    * The width of the input width.
    */
-  inputWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  inputWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+
+  inputType: PropTypes.string
 }
 
 export default TextInputField

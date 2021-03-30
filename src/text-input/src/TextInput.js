@@ -1,8 +1,8 @@
+import { Text } from '../../typography'
+import { useTheme } from '../../theme'
 import React, { forwardRef, memo } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { Text } from '../../typography'
-import { useTheme } from '../../theme'
 
 const TextInput = memo(
   forwardRef(function TextInput(props, ref) {
@@ -16,6 +16,7 @@ const TextInput = memo(
       isInvalid = false,
       appearance = 'default',
       spellCheck = true,
+      type = 'text',
       ...restProps
     } = props
     const theme = useTheme()
@@ -28,7 +29,7 @@ const TextInput = memo(
       <Text
         is="input"
         className={cx(themedClassName, className)}
-        type="text"
+        type={type}
         size={textSize}
         width={width}
         height={height}
@@ -94,7 +95,9 @@ TextInput.propTypes = {
    * Class name passed to the button.
    * Only use if you know what you are doing.
    */
-  className: PropTypes.string
+  className: PropTypes.string,
+
+  type: PropTypes.string
 }
 
 export default TextInput

@@ -1,11 +1,11 @@
-import { storiesOf } from '@storybook/react'
-import React from 'react'
-import PropTypes from 'prop-types'
-import Box from 'ui-box'
 import { ErrorIcon } from '../../icons'
 import { Text, Label, Heading } from '../../typography'
 import { Pane, Card } from '../../layers'
 import { Button } from '../../buttons'
+import { storiesOf } from '@storybook/react'
+import React from 'react'
+import PropTypes from 'prop-types'
+import Box from 'ui-box'
 import { TextInputField, TextInput } from '..'
 
 const Description = props => (
@@ -44,6 +44,7 @@ storiesOf('text-input', module)
             </Description>
             <TextInput
               appearance={appearance}
+              type="number"
               name="32"
               id="32"
               placeholder="With placeholder"
@@ -108,7 +109,8 @@ storiesOf('text-input', module)
       <TextInputField
         label="Default text input field"
         description="This is a description."
-        placeholder="Placeholder text"
+        placeholder="Placeholder number"
+        inputType="number"
       />
       <TextInputField
         id="ids-are-optional"
